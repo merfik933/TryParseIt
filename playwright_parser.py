@@ -6,13 +6,12 @@ def try_parse(url):
             browser = p.chromium.launch(headless=False)
             page = browser.new_page()
             page.goto(url)
-            html = page.inner_html("html")
+            content = page.content()
 
             print(f"Successfully fetched {url} using Playwright.")
-            input("Press Enter to continue...")
-            page.close()
+            browser.close()
 
-            return html
+            return content
         except Exception as e:
             print(f"Error fetching page: {e}")
             return None
