@@ -6,6 +6,10 @@ def try_parse(url):
             browser = p.chromium.launch(headless=False)
             page = browser.new_page()
             page.goto(url)
+
+            page.wait_for_load_state('networkidle')  # Wait for the network to be idle
+            page.wait_for_timeout(1000)  # Additional wait time for dynamic content
+
             content = page.content()
 
             print(f"Successfully fetched {url} using Playwright.")
