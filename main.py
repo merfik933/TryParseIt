@@ -10,6 +10,12 @@ def main():
     args = parser.parse_args()
 
     url = args.url
+    use_requests = args.use_requests
+    use_playwright = args.use_playwright
+
+    is_requests_parsing_successful = False
+    is_playwright_parsing_successful = False
+
     if use_requests:
         from requests_parser import try_parse
 
@@ -17,6 +23,8 @@ def main():
         if page:
             with open("C:\\Users\\anato\\Downloads\\page_requests.html", "w", encoding="utf-8") as file:
                 file.write(page)
+            is_requests_parsing_successful = True
+        
     if use_playwright:
         import playwright_parser
 
@@ -24,5 +32,15 @@ def main():
         if page:
             with open("C:\\Users\\anato\\Downloads\\page_playwright.html", "w", encoding="utf-8") as file:
                 file.write(page)
+            is_requests_parsing_successful = True
+
+    print("Parsing completed.")
+    print("Results:\n")
+    print(f"Requests parsing successful: {is_requests_parsing_successful}")
+    print(f"Playwright parsing successful: {is_playwright_parsing_successful}")
+    print("\nCheck the files in Downloads folder.")
+
+    input("Press Enter to exit...")
+
 if __name__ == "__main__":
     main()
