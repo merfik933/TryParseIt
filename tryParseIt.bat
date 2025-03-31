@@ -1,2 +1,2 @@
 @echo off
-python "D:\Projects\Tools\TryParseIt\main.py" %*
+D:\Projects\Tools\TryParseIt\.venv\Scripts\python.exe "D:\Projects\Tools\TryParseIt\main.py" %*
