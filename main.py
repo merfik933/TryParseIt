@@ -26,9 +26,9 @@ def main():
             is_requests_parsing_successful = True
         
     if use_playwright:
-        import playwright_parser
+        from playwright_parser import try_parse
 
-        page = playwright_parser.try_parse(url)
+        page = try_parse(url)
         if page:
             with open("C:\\Users\\anato\\Downloads\\page_playwright.html", "w", encoding="utf-8") as file:
                 file.write(page)
@@ -39,8 +39,6 @@ def main():
     print(f"Requests parsing successful: {is_requests_parsing_successful}")
     print(f"Playwright parsing successful: {is_playwright_parsing_successful}")
     print("\nCheck the files in Downloads folder.")
-
-    input("Press Enter to exit...")
 
 if __name__ == "__main__":
     main()
