@@ -32,7 +32,7 @@ def main():
         if page:
             with open("C:\\Users\\anato\\Downloads\\page_playwright.html", "w", encoding="utf-8") as file:
                 file.write(page)
-            is_requests_parsing_successful = True
+            is_playwright_parsing_successful = True
 
     print("Parsing completed.")
     print("Results:\n")
